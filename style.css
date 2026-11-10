@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Century', sans-serif;
+}
+
+body {
+    background-color: hsl(215, 36%, 67%);
+    color: #333;
+    overflow-x: hidden;
+}
+
+#burgerBtn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background-color: #2b2d42;
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background 0.3s;
+}
+
+#burgerBtn:hover {
+    background-color: #3d405b;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.page {
+    display: flex;
+    min-height: 100vh; 
+    transition: margin-left 0.3s ease;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sidebar {
+    width: 260px;
+    background-color: hsl(215, 36%, 67%);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    transition: transform 0.3s ease;
+    z-index: 999;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    letter-spacing: 1px;
+    color: #f1f1f1; 
+}
+        
+.menu-item {
+    color: #edf2f4;
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    border-left: 4px solid transparent;
+    transition: background 0.3s, border 0.3s;
+}
+
+.menu-item:hover {
+    background-color: #3d405b;
+    border-left-color: #f1f1f1;
+}
+
+.menu-item.active {
+    background-color: #3d405b;
+    border-left-color: #f1f1f1;
+    font-weight: bold;
+}
+
+.main {
+    flex: 1;
+    padding: 40px;
+    background-color: #f4f5f7;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.opis {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.opis p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.opis p strong {
+    font-size: 22px;
+    color: #2b2d42;
+    margin-bottom: 10px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #2b2d42;
+    margin: 20px 0;
+}
+
+.products {
+    padding: 15px;
+    text-align: center;
+}
+
+.products p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2b2d42;
+}
+
+.contacts {
+    background-color: #2b2d42;
+    color: white;
+    padding: 40px;
+    margin-top: 40px;
+}
+
+.contacts h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #f1f1f1;
+}
+
+.contacts-bar {
+    display: flex;
+    gap: 30px;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.contact-label {
+    font-size: 14px;
+    color: #8d99ae;
+}
+
+.contacts a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contacts a:hover {
+    color: #f1f1f1;
+}
+
+.copyright {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #8d99ae;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .page {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        transform: translateX(-100%);
+        box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .menu {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+
+    .menu-item {
+        padding: 15px 30px;
+        border-left: 4px solid transparent;
+        border-bottom: none;
+    }
+
+    .menu-item:hover, .menu-item.active {
+        border-left-color: #f1f1f1;
+        border-bottom: none;
+    }
+
+    .contacts-bar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .main {
+        padding: 80px 20px 20px 20px;
+    }
+}
